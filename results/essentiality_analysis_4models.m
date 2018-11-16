@@ -2,6 +2,12 @@ clear
 clc
 close all
 
+addpath(genpath('/Users/Anush/GIT_Folders/fba_toolbox'));
+addpath(genpath('/Users/Anush/GIT_Folders/et'));
+addpath(genpath('/Users/Anush/Applications/IBM/ILOG/CPLEX_Studio1271'));
+addpath(genpath('/Users/Anush/GIT_Folders/texfba'));
+cd('/Users/Anush/GIT_Folders/texfba')
+
 %% INPUTS
 mm = load('/Users/Anush/SWITCHdrive/texFBA/texfba/Data/models/FBAmodel_withC13.mat');
 model{1} = mm.fba_model;
@@ -26,7 +32,7 @@ yesgenetfa = cell(1,4);
 %% 
 for i = 1:4
     solt{i} = optimizeThermoModel(model{i});
-    if solt{i} > 1.5
+    if solt{i}.val > 1.5
         solution.store_obj = solt{i}.val;
         % define objective function back to original model
         model{i}.f = zeros(numel(model{i}.f),1);
