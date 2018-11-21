@@ -30,7 +30,7 @@ essential_genes_tfa = cell(1,4);
 yesgenetfa = cell(1,4);
 
 %% 
-for i = 1:4
+for i = 2:4
     solt{i} = optimizeThermoModel(model{i});
     if solt{i}.val > 1.5
         solution.store_obj = solt{i}.val;
