@@ -18,7 +18,7 @@ model{2} = mm.xFBA;
 mm = load('/Users/Anush/SWITCHdrive/texFBA/texfba/Data/models/TFBAmodel_fluxomics_metabolomics_ishii.mat');
 model{3} = mm.fba_tmodel_conc;
 
-mm = load('/Users/Anush/SWITCHdrive/texFBA/texfba/Data/models/xTFAmodel.mat');
+mm = load('/Users/Anush/SWITCHdrive/texFBA/texfba/Data/models/xTFA2model.mat');
 model{4} = mm.xTFA;
 
 essThr = 0.1;
