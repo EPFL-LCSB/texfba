@@ -1,0 +1,16 @@
+CompartmentData.compSymbolList = {'c'	'm'	'v'	'x'	'e'	't'	'g'	'r'	'n'	'p'};
+CompartmentData.compNameList = {'Cytosol'	'Mitochondria'	'Vacuole'	'Peroxisome'	'Extra-organism'	'Pool'	'Golgi Apparatus'	'Endoplasmic Reticulum'	'Nucleus'	'Periplasm'};
+CompartmentData.pH = [7.50000000000000	7	7	7	7	7	7	7	7	7];
+CompartmentData.ionicStr = [0.250000000000000	0	0	0	0	0	0	0	0	0];
+CompartmentData.compMaxConc = [0.0500000000000000	0.0500000000000000	0.0500000000000000	0.0500000000000000	0.100000000000000	0.0500000000000000	0.0500000000000000	0.0500000000000000	0.0500000000000000	0.0500000000000000];
+CompartmentData.compMinConc = [1.00000000000000e-06	1.00000000000000e-06	1.00000000000000e-06	1.00000000000000e-06	1.00000000000000e-08	1.00000000000000e-06	1.00000000000000e-06	1.00000000000000e-06	1.00000000000000e-06	1.00000000000000e-06];
+CompartmentData.membranePot = [0	0	0	0	0	0	0	0	0	150
+0	0	0	0	0	0	0	0	0	0
+0	0	0	0	0	0	0	0	0	0
+0	0	0	0	0	0	0	0	0	0
+0	0	0	0	0	0	0	0	0	0
+0	0	0	0	0	0	0	0	0	0
+0	0	0	0	0	0	0	0	0	0
+0	0	0	0	0	0	0	0	0	0
+0	0	0	0	0	0	0	0	0	0
+-150	0	0	0	0	0	0	0	0	0];
