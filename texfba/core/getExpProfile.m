@@ -60,10 +60,17 @@ if numAlt>100
     model.var_lb(model.f==1)=sol.val-0.5;
 end
 
-v_matrix = zeros(length(sol.x(indNFvar)), numAlt);
-z_matrix = zeros(length(sol.x(indUPDOWN)), numAlt);
-sol_matrix = zeros(length(sol.x), numAlt);
-store_obj = zeros(1, numAlt);
+if isempty(sol.x)
+    v_matrix = [];
+    z_matrix = [];
+    sol_matrix = [];
+    store_obj = [];
+else
+    v_matrix = zeros(length(sol.x(indNFvar)), numAlt);
+    z_matrix = zeros(length(sol.x(indUPDOWN)), numAlt);
+    sol_matrix = zeros(length(sol.x), numAlt);
+    store_obj = zeros(1, numAlt);
+end
 
 NumSols = 0;
 
