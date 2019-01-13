@@ -16,7 +16,7 @@ function [parsedGPR, store] = parseGPRModify(model)
 %
 % .. Author:
 % Vikash Pandey 2016
-% Anush Chiappino-Pepe 2018 corrected errors
+% Anush Chiappino-Pepe 2018 prepare GPR
 %
 
 store=[];

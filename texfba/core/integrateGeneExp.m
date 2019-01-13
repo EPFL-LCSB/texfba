@@ -90,12 +90,10 @@ path_save = '/Users/Anush/Documents/gei_altsol.mat';
 
 % Prepare model for gene expression data integration
 if flagPlot
-    % change gene to rxn expression
-    levels = geneToreaction_levels(tmodel, tmodel.genes, levelGenes, @min, @max );
-    lowPer1 = prctile(log(levels),lowPvalue);
-    higPer1 = prctile(log(levels),highPvalue);
+    lowPer1 = prctile(log(levelGenes),lowPvalue);
+    higPer1 = prctile(log(levelGenes),highPvalue);
     % plot distribution
-    hist(log(levels),10)
+    hist(log(levelGenes),10)
     hold on
     plot([lowPer1; lowPer1], [300*ones(1,length(lowPer1)); ...
         zeros(1,length(lowPer1))])
