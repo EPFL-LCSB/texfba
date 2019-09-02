@@ -21,7 +21,7 @@ function [newModel, indUSE] = UpExp(model, reacsInd, UpMin, indFvar, indRvar)
 %                     reactions (tagged with 'UP_')
 %
 % Daniel F. Hernandez 2016
-% Anush Chiappino-Pepe 2017 - redefinition of function
+% Anush Chiappino-Pepe 2017
 %
 
 

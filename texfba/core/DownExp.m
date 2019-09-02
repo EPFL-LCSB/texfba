@@ -21,7 +21,7 @@ function [newModel, indUSE] = DownExp(model, reacsInd, lowMax, indFvar, indRvar)
 %                     reactions (tagged with 'DOWN_')
 %
 % Daniel F. Hernandez 2016
-% Anush Chiappino-Pepe 2017 - redefinition of function
+% Anush Chiappino-Pepe 2017
 %
 
 if ~exist('indFvar', 'var') || isempty(indFvar)
@@ -31,9 +31,6 @@ end
 if ~exist('indRvar', 'var') || isempty(indRvar)
     [indRvar,~] = getAllVar(model,{'R'});
 end
-
-%reacsInd; lowMax;%THESE TWO MUST BE SAME SIZE AND THE F AND R VARSinds MUST
-%BE MATCHED UP %NOTHING LESS THAN BASAL VALUES HERE!
 
 % define use variables
 intTag = {'DOWN'};
@@ -61,19 +58,6 @@ for i=1:length(reacsInd)
     model.A(numCons+i, indUSE(i)) = 1000;
     model.constraintType(numCons+i) = {'<'};
 end
-
-% [numCons,~] = size(model.A);
-% % F_rxn + R_rxn + lowMax*DOWN_rxn < lowMax
-% % if DOWN_rxn = 1 => F_rxn + R_rxn < 0
-% % if DOWN_rxn = 0 => F_rxn + R_rxn < lowMax
-% for i=1:length(reacsInd)
-%     model.constraintNames(numCons+i) = strcat({'DOWN2_'}, model.rxns(reacsInd(i)));
-%     model.rhs(numCons+i) = lowMax(i);
-%     model.A(numCons+i, indFvar(reacsInd(i))) = 1;
-%     model.A(numCons+i, indRvar(reacsInd(i))) = 1;
-%     model.A(numCons+i, indUSE(i)) = lowMax(i);
-%     model.constraintType(numCons+i) = {'>'};
-% end
 
 % Adder Var
 [numCons, numVars] = size(model.A);

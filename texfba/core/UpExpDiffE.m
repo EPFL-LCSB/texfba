@@ -22,7 +22,7 @@ function [newModel, indUSE] = UpExpDiffE(model, reacsInd, UpMin, indFvar, indRva
 %                     reactions (tagged with 'UP_')
 %
 % Daniel F. Hernandez 2016
-% Anush Chiappino-Pepe 2017 - redefinition of function
+% Anush Chiappino-Pepe 2017
 %
 
 if ~exist('indFvar', 'var') || isempty(indFvar)
@@ -107,31 +107,6 @@ for i=1:length(reacsInd)
     model.A(numCons+i, indUSE(i)) = 1;
     model.constraintType(numCons+i) = {'='};
 end
-
-% % define contraints for MILP
-% [numCons,~] = size(model.A);
-% % F_rxn - 1000*UPf_rxn < UpMin(i,2)
-% % if UPf_rxn = 1 => F_rxn < UpMin(i,2) + 1000
-% % if UPf_rxn = 0 => F_rxn < UpMin(i,2)
-% for i=1:length(reacsInd)
-%     model.constraintNames(numCons+i) = strcat({'UPF2_'}, model.rxns(reacsInd(i)));
-%     model.rhs(numCons+i) = UpMin(i,2);
-%     model.A(numCons+i, indFvar(reacsInd(i))) = 1;
-%     model.A(numCons+i, indUSEF(i)) = -1000;
-%     model.constraintType(numCons+i) = {'<'};
-% end
-% 
-% [numCons,~] = size(model.A);
-% % R_rxn - 1000*UPr_rxn < abs(UpMin(i,1))
-% % if UPr_rxn = 1 => R_rxn < abs(LowMax(i,1)) + 1000
-% % if UPr_rxn = 0 => R_rxn < abs(LowMax(i,1))
-% for i=1:length(reacsInd)
-%     model.constraintNames(numCons+i) = strcat({'UPR2_'}, model.rxns(reacsInd(i)));
-%     model.rhs(numCons+i) = abs(UpMin(reacsInd(i),1));
-%     model.A(numCons+i, indRvar(reacsInd(i))) = 1;
-%     model.A(numCons+i, indUSER(i)) = -1000;
-%     model.constraintType(numCons+i) = {'<'};
-% end
 
 % redefine sum_ALLUSEUPGE
 % sum(UP_rxn) = sum_ALLUSEUPGE

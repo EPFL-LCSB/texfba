@@ -23,8 +23,9 @@ function [expModel, solution, newgrRules, expModelm] = integrateGeneExp(tmodel, 
 %                     = 80)
 %    NumAlt:          Maximum number of alternatives to get (default = 1)
 %    selectAlt:       Indicate what alternative expression profile to
-%                     integrate in the model (default = common profile to 
-%                     max consistency score (CS))
+%                     integrate in the model (default = zero to require 
+%                     just max consistency score (CS) and not a unique 
+%                     profile if there are alternatives)
 %    flagPlot:        plot distribution of gene expression (default = 1)
 %    minmax:          minmax of net reaction fluxes in two columns 
 %                     (default = lb and ub)
@@ -44,8 +45,7 @@ function [expModel, solution, newgrRules, expModelm] = integrateGeneExp(tmodel, 
 %
 % .. Author:
 % Daniel F. Hernandez & Vikash Pandey 2015
-% Anush Chiappino-Pepe 2017 - integration of expression constraints into 
-% the model and organization of the function
+% Anush Chiappino-Pepe 2017
 %
 
 if (nargin < 3)
@@ -172,7 +172,7 @@ expModelm.f(ismember(expModelm.varNames, tmodel.varNames(tmodel.f==1))) = 1;
 expModelm.var_lb(ismember(expModelm.varNames, tmodel.varNames(tmodel.f==1))) = 0;
 
 % integrate expression constraints into model
-if isequal(selectAlt,0) % define maximum consistency;
+if isequal(selectAlt,0) || isempty(selectAlt) % define maximum consistency;
     expModel = integrateConsProfile(expModelm, solution, find(ismember({'Total_UpsAndDowns'},expModelm.varNames)), selectAlt);
 else
     expModel = integrateConsProfile(expModelm, solution, indUPDOWN, selectAlt);

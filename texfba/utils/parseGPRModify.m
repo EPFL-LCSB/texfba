@@ -24,7 +24,7 @@ parsedGPR = containers.Map();
 
 % this function only accepts complex GPRs like (g1 and g2) or (g3 and g4)
 % we need to preprocess the GPRs to avoid problems with g1 and (g2 or g3) cases
-[model, rules2check] = prepGPR(model);
+% [model, rules2check] = prepGPR(model);
 
 for i = 1:length(model.rxns)
     if length(model.grRules{i}) > 1

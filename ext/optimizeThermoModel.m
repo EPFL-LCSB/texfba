@@ -1,5 +1,5 @@
 function sol = optimizeThermoModel(tModel,tagParTFA,solver,time)
-% This function solves a TFBA problem using CPLEX
+% This function solves a TFA problem using CPLEX
 %
 % USAGE:
 %

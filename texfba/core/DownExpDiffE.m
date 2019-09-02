@@ -32,8 +32,6 @@ if ~exist('indRvar', 'var') || isempty(indRvar)
     [indRvar,~] = getAllVar(model,{'R'});
 end
 
-%reacsInd; LowMax;%THESE TWO MUST BE SAME SIZE AND THE F AND R VARSinds MUST BE MATCHED UP %NOTHING LESS THAN BASAL VALUES HERE!
-
 % define use variables
 intTag = {'DOWN'};
 numVars = size(model.A,2);
@@ -109,31 +107,6 @@ for i=1:length(reacsInd)
     model.A(numCons+i, indUSE(i)) = 1;
     model.constraintType(numCons+i) = {'='};
 end
-
-% % define contraints for MILP
-% [numCons,~] = size(model.A);
-% % F_rxn + 1000*DOWNf_rxn < LowMax(i,2)
-% % if DOWNf_rxn = 1 => F_rxn < LowMax(i,2)
-% % if DOWNf_rxn = 0 => F_rxn < LowMax(i,2)
-% for i=1:length(reacsInd)
-%     model.constraintNames{numCons+i} = strcat({'DOWNF2_'}, model.rxns(reacsInd(i)));
-%     model.rhs(numCons+i) = LowMax(i,2);
-%     model.A(numCons+i, indFvar(reacsInd(i))) = 1;
-%     model.A(numCons+i, indUSEF(i)) = LowMax(i,2);
-%     model.constraintType(numCons+i) = {'>'};
-% end
-% 
-% [numCons,~] = size(model.A);
-% % R_rxn + abs(LowMax(i,1))*DOWNR_rxn > abs(LowMax(i,1))
-% % if DOWNR_rxn = 1 => R_rxn < abs(LowMax(i,1))
-% % if DOWNR_rxn = 0 => R_rxn < 1000 + abs(LowMax(i,1))
-% for i=1:length(reacsInd)
-%     model.constraintNames(numCons+i) = strcat({'DOWNR2_'}, model.rxns(reacsInd(i)));
-%     model.rhs(numCons+i) = abs(LowMax(i,1));
-%     model.A(numCons+i, indRvar(reacsInd(i))) = 1;
-%     model.A(numCons+i, indUSER(i)) = abs(LowMax(i,1));
-%     model.constraintType(numCons+i) = {'>'};
-% end
 
 % redefine sum_ALLUSEDOWNGE
 % sum(DOWN_rxn) = sum_ALLUSEDOWNGE

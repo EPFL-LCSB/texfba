@@ -26,7 +26,7 @@ function [rxns, rxnExp, newgrRules, optionOut] = fEvalGPR(model, genes, ...
 %
 % .. Author:
 % Vikash Pandey 2016
-% Anush Chiappino-Pepe 2017 - restructuring the function
+% Anush Chiappino-Pepe 2017
 %
 
 if (nargin < 4)

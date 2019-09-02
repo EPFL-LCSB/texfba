@@ -14,7 +14,7 @@ function newModel = UnifiedExpVar(model)
 %    newModel:        model with consistency score as objective function
 %
 % Daniel F. Hernandez 2016
-% Anush Chiappino-Pepe 2017 - redefinition of function
+% Anush Chiappino-Pepe 2017
 %
 
 [numCons, numVars] = size(model.A);

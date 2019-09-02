@@ -34,7 +34,7 @@ percHigh, percLow, indFvar, indRvar, visualize)
 %
 % .. Author:
 % Daniel F. Hernandez 2016
-% Anush Chiappino-Pepe 2017 - restructuring
+% Anush Chiappino-Pepe 2017
 
 % The constraints are explained below. Note that
 % all expression variables (other than the adders) start with UP_ or DOWN_
